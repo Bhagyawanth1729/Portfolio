@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bhagyawanth | Data Analyst Portfolio</title>
+  <meta name="description" content="Bhagyawanth – Aspiring Data Analyst. Portfolio showcasing data analysis, visualization, SQL, Python, Power BI, and Java backend projects." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    :root{
+      --bg:#0b0e14;      /* deep night */
+      --panel:#11151f;   /* cards */
+      --muted:#9aa4b2;   /* secondary text */
+      --text:#e6e9ef;    /* primary text */
+      --brand:#4f46e5;   /* indigo */
+      --brand-2:#22d3ee; /* cyan accent */
+      --ring: 0 0 0 3px rgba(79,70,229,.35);
+      --radius: 18px;
+      --max: 1100px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body{
+      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 80% -10%, rgba(79,70,229,.2), transparent), var(--bg);
+      color: var(--text);
+    }
+
+    /* Header / Nav */
+    header{
+      position: sticky; top:0; z-index:1000;
+      backdrop-filter: saturate(180%) blur(10px);
+      background: rgba(11,14,20,.65);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    nav{ max-width: var(--max); margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding: 14px 20px; }
+    .brand{ display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.5px; }
+    .brand .dot{ width:10px; height:10px; border-radius:50%; background: linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow:0 0 18px rgba(34,211,238,.55); }
+    .nav-links{ list-style:none; display:flex; gap:18px; padding:0; margin:0; }
+    .nav-links a{
+      color: var(--muted); text-decoration:none; font-weight:600; padding:8px 10px; border-radius:10px; transition:.2s ease;
+    }
+    .nav-links a:hover, .nav-links a:focus{ color:var(--text); background: rgba(255,255,255,.06); outline:none; box-shadow: var(--ring); }
+
+    /* Layout helpers */
+    .container{ max-width: var(--max); margin:0 auto; padding: 60px 20px; }
+    .grid{ display:grid; gap:28px; }
+
+    /* Intro */
+    .intro{ min-height: 82vh; display:grid; align-items:center; }
+    .intro .grid{ grid-template-columns: 1.1fr .9fr; align-items: center; }
+    .eyebrow{ color: var(--brand-2); font-weight:700; letter-spacing: .12em; text-transform: uppercase; font-size: .78rem; }
+    h1{ font-size: clamp(2rem, 4vw, 3.2rem); line-height:1.12; margin: 8px 0 14px; }
+    h1 span.name{ background: linear-gradient(135deg, var(--brand), var(--brand-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lead{ color: var(--muted); font-size: 1.05rem; max-width: 62ch; }
+
+    .actions{ display:flex; gap:14px; margin-top: 26px; flex-wrap: wrap; }
+    .btn{
+      display:inline-flex; align-items:center; gap:10px; border:none; cursor:pointer; font-weight:700; padding:12px 18px; border-radius: 12px; text-decoration:none; transition:.2s ease; color: var(--text);
+    }
+    .btn.primary{ background: linear-gradient(135deg, var(--brand), var(--brand-2)); }
+    .btn.secondary{ background: rgba(255,255,255,.06); color: var(--text); }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+
+    .intro-portrait{ justify-self:end; }
+    .intro-portrait img{ width: min(350px, 85%); border-radius: var(--radius); border:1px solid rgba(255,255,255,.08); box-shadow: 0 12px 50px rgba(79,70,229,.25); }
+
+    .social{ display:flex; gap:12px; margin-top:18px; }
+    .social a{ width:38px; height:38px; display:grid; place-items:center; border-radius:12px; color:var(--text); background: rgba(255,255,255,.06); text-decoration:none; }
+    .social a:hover{ background: rgba(255,255,255,.12); }
+
+    /* About */
+    section{ scroll-margin-top: 90px; }
+    .panel{ background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)); border:1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 28px; }
+    .about .grid{ grid-template-columns: .9fr 1.1fr; align-items:center; }
+    .about img{ width:100%; border-radius: 16px; border:1px solid rgba(255,255,255,.08); }
+
+    /* Services */
+    .services .cards{ grid-template-columns: repeat(3, 1fr); }
+    .card{ background: var(--panel); border-radius: var(--radius); padding:22px; border:1px solid rgba(255,255,255,.08); transition:.25s ease; position:relative; overflow:hidden; }
+    .card:hover{ transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,.35); }
+    .icon{ width:42px; height:42px; display:grid; place-items:center; border-radius:12px; background: rgba(79,70,229,.18); margin-bottom:10px; }
+    .card p{ color:var(--muted); }
+
+    /* Skills */
+    .skills .bars{ grid-template-columns: 1fr 1fr; }
+    .skill{ display:grid; gap:10px; }
+    .skill label{ font-weight:700; font-size:.95rem; }
+    .progress{ height:10px; background: rgba(255,255,255,.08); border-radius:999px; overflow:hidden; }
+    .progress > span{ display:block; height:100%; width:0; background: linear-gradient(90deg, var(--brand), var(--brand-2)); border-radius:inherit; transition: width 1.2s ease; }
+
+    .circles{ display:grid; grid-template-columns: repeat(4, 1fr); gap:18px; }
+    .circle{ aspect-ratio:1/1; border-radius:50%; background: conic-gradient(var(--brand) 0deg, var(--brand-2) 0deg, rgba(255,255,255,.08) 0deg); display:grid; place-items:center; position:relative; }
+    .circle .inner{ width:72%; height:72%; border-radius:50%; background: var(--panel); display:grid; place-items:center; font-weight:800; }
+    .circle p{ position:absolute; bottom:-28px; width:100%; text-align:center; color: var(--muted); font-size:.92rem; }
+
+    /* Projects */
+    .projects .cards{ grid-template-columns: repeat(3, 1fr); }
+    .project-card{ position:relative; overflow:hidden; border-radius: 16px; border:1px solid rgba(255,255,255,.08); background: #0e131f; }
+    .project-card img{ width:100%; height:220px; object-fit:cover; display:block; transition: transform .3s ease; }
+    .project-card:hover img{ transform: scale(1.05); }
+    .project-card .meta{ position:absolute; inset:auto 0 0 0; padding:14px; background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.7)); font-size:.95rem; }
+    .project-card a{ color: var(--brand-2); text-decoration: none; font-weight:700; }
+
+    /* Contact */
+    .contact .grid{ grid-template-columns: 1.1fr .9fr; }
+    .contact p{ color:var(--muted); }
+    form{ display:grid; gap:12px; }
+    input, textarea{
+      width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04); color: var(--text);
+    }
+    input:focus, textarea:focus{ outline:none; box-shadow: var(--ring); border-color: transparent; }
+    textarea{ min-height: 120px; resize: vertical; }
+
+    /* Footer */
+    footer{ padding:36px 20px; text-align:center; color:var(--muted); border-top:1px solid rgba(255,255,255,.06); margin-top: 40px; }
+
+    /* Section headings */
+    .section-title{ display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+    .section-title .dot{ width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow:0 0 18px rgba(34,211,238,.45); }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .intro .grid, .about .grid, .contact .grid{ grid-template-columns: 1fr; }
+      .services .cards, .projects .cards{ grid-template-columns: 1fr 1fr; }
+      .intro-portrait{ justify-self:start; }
+    }
+    @media (max-width: 640px){
+      .nav-links{ display:none; }
+      .services .cards, .projects .cards, .skills .bars, .circles{ grid-template-columns: 1fr; }
+      .intro-portrait img{ width: 92%; }
+    }
+
+    /* Simple fade-in on scroll */
+    [data-reveal]{ opacity:0; transform: translateY(14px); transition: .6s ease; }
+    [data-reveal].visible{ opacity:1; transform:none; }
+  </style>
+</head>
+<body>
+  <header aria-label="Primary Navigation">
+    <nav>
+      <div class="brand"><span class="dot" aria-hidden="true"></span> <span>Bhagyawanth</span></div>
+      <ul class="nav-links" role="list">
+        <li><a href="#intro">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="intro" class="intro">
+    <div class="container grid">
+      <section aria-label="Hero">
+        <p class="eyebrow">Hello, it's me</p>
+        <h1>I'm <span class="name">Bhagyawanth</span><br/>and I'm a <span id="typing" aria-live="polite"></span></h1>
+        <p class="lead">Aspiring Data Analyst focused on turning raw data into clear, actionable insights. I love SQL, Python, Power BI, and clean visual stories that help decisions happen faster.</p>
+        <div class="actions">
+          <a class="btn primary" href="#about"><i class="fa-solid fa-user"></i> More About Me</a>
+          <a class="btn secondary" href="#contact"><i class="fa-solid fa-paper-plane"></i> Let's Work Together</a>
+          <a class="btn secondary" href="/Bhagyawanth_Data_Analyst_Resume.pdf" download><i class="fa-solid fa-file-arrow-down"></i> Download Resume</a>
+        </div>
+        <div class="social" aria-label="Social links">
+          <a href="https://wa.me/7204796690" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.linkedin.com/in/bhagyawanthningappa/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </section>
+      <div class="intro-portrait" aria-hidden="true">
+        <img src="/Bhagyawanth_photo.jpeg" alt="Portrait of Bhagyawanth" loading="lazy" />
+      </div>
+    </div>
+  </main>
+
+  <section id="about" class="about container">
+    <div class="grid panel" data-reveal>
+      <div>
+        <img src="/My.jpg" alt="Bhagyawanth – profile photo" loading="lazy" />
+      </div>
+      <div>
+        <div class="section-title"><span class="dot"></span><h2>About <span class="name">Me</span></h2></div>
+        <h3>Data Analyst & Java Backend Enthusiast</h3>
+        <p class="lead">I’m building strong foundations in statistical analysis, SQL, Python, and BI tools. I enjoy bridging the gap between data and decisions—cleaning datasets, modeling trends, and shipping visuals that executives actually understand.</p>
+        <div class="actions">
+          <a class="btn primary" href="#services"><i class="fa-solid fa-briefcase"></i> What I Do</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="services container">
+    <div class="section-title"><span class="dot"></span><h2>My Services</h2></div>
+    <div class="grid cards" data-reveal>
+      <article class="card">
+        <div class="icon"><i class="fa-solid fa-gears"></i></div>
+        <h3>Java Backend</h3>
+        <p>Build and maintain RESTful APIs with clean architecture, testing, and performance in mind. Spring Boot, SQL schema design, and CI-friendly code.</p>
+      </article>
+      <article class="card">
+        <div class="icon"><i class="fa-solid fa-chart-simple"></i></div>
+        <h3>Data Analysis</h3>
+        <p>Collect, clean, and analyze data to produce actionable insights. Dashboards in Power BI, pandas/NumPy for analysis, and crisp stakeholder-ready summaries.</p>
+      </article>
+      <article class="card">
+        <div class="icon"><i class="fa-solid fa-diagram-project"></i></div>
+        <h3>Projects & Automation</h3>
+        <p>Small tooling and scripts to automate reporting: CSV/Excel pipelines, API data pulls, and scheduled insight emails.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills" class="skills container">
+    <div class="section-title"><span class="dot"></span><h2>Skills</h2></div>
+    <div class="grid bars panel" data-reveal>
+      <!-- Technical Skills -->
+      <div class="skill"><label>HTML</label><div class="progress" aria-label="HTML proficiency"><span data-pct="90"></span></div></div>
+      <div class="skill"><label>CSS</label><div class="progress" aria-label="CSS proficiency"><span data-pct="60"></span></div></div>
+      <div class="skill"><label>Java</label><div class="progress" aria-label="Java proficiency"><span data-pct="85"></span></div></div>
+      <div class="skill"><label>Python</label><div class="progress" aria-label="Python proficiency"><span data-pct="80"></span></div></div>
+      <div class="skill"><label>SQL</label><div class="progress" aria-label="SQL proficiency"><span data-pct="90"></span></div></div>
+      <div class="skill"><label>Power BI</label><div class="progress" aria-label="Power BI proficiency"><span data-pct="75"></span></div></div>
+      <div class="skill"><label>LaTeX</label><div class="progress" aria-label="LaTeX proficiency"><span data-pct="60"></span></div></div>
+      <div class="skill"><label>C</label><div class="progress" aria-label="C proficiency"><span data-pct="75"></span></div></div>
+    </div>
+
+    <div class="panel" style="margin-top:18px" data-reveal>
+      <h3>Professional Skills</h3>
+      <div class="circles">
+        <div class="circle" data-pct="90"><div class="inner">90%</div><p>Creativity</p></div>
+        <div class="circle" data-pct="65"><div class="inner">65%</div><p>Communication</p></div>
+        <div class="circle" data-pct="75"><div class="inner">75%</div><p>Problem Solving</p></div>
+        <div class="circle" data-pct="85"><div class="inner">85%</div><p>Teamwork</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects container">
+    <div class="section-title"><span class="dot"></span><h2>Latest Projects</h2></div>
+    <div class="grid cards" data-reveal>
+      <article class="project-card">
+        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop"  alt="Data dashboard screenshot placeholder" loading="lazy" />
+        <div class="meta">
+          <strong>Sales Insights Dashboard</strong><br/>
+          Power BI dashboard tracking revenue, CAC, and churn.
+          <div><a href="https://github.com/Bhagyawanth1729?tab=repositories" target="_blank" rel="noopener">View case study →</a></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="Python analysis notebook placeholder" loading="lazy" />
+        <div class="meta">
+          <strong>Customer Segmentation (Python)</strong><br/>
+          K-Means on transaction data with visual profiles.
+          <div><a href="https://github.com/Bhagyawanth1729?tab=repositories" target="_blank" rel="noopener">Read notebook →</a></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <img src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?q=80&w=1200&auto=format&fit=crop" alt="Java backend API placeholder" loading="lazy" />
+        <div class="meta">
+          <strong>Java API for Reports</strong><br/>
+          Spring Boot service generating weekly KPIs as JSON/CSV.
+          <div><a href="https://github.com/Bhagyawanth1729?tab=repositories" target="_blank" rel="noopener">Browse repo →</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" class="contact container">
+    <div class="section-title"><span class="dot"></span><h2>Contact Me</h2></div>
+    <div class="grid" data-reveal>
+      <div class="panel">
+        <h3>Let's Work Together</h3>
+        <p>Are you seeking a data-driven solution to your business challenges? From visualization and statistical analysis to clear storytelling, I help teams make confident, measurable decisions.</p>
+        <p><strong>Email:</strong> <a href="mailto:cse22034@iiitkalyani.ac.in">cse22034@iiitkalyani.ac.in</a><br>
+           <strong>Phone:</strong> <a href="tel:+917204796690">+91 72047 96690</a></p>
+        <div class="social" aria-label="Social links">
+          <a href="https://facebook.com/" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com/" aria-label="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+          <a href="https://instagram.com/" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/bhagyawanthningappa/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <form class="panel" action="https://formspree.io/f/mrbldagr" method="POST">
+        <label for="name">Your Name</label>
+        <input id="name" name="name" type="text" placeholder="Enter your name" required>
+
+        <label for="email">Your Email</label>
+        <input id="email" name="email" type="email" placeholder="Enter your email" required>
+
+        <label for="subject">Subject</label>
+        <input id="subject" name="subject" type="text" placeholder="What is this about?" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell me about your project" required></textarea>
+
+        <button class="btn primary" type="submit"><i class="fa-regular fa-paper-plane"></i> Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Bhagyawanth • Built with HTML, CSS & JS
+  </footer>
+
+  <script>
+    // Dynamic typing effect
+    const roles = ["Data Analyst", "SQL & Python", "Java Backend", "Problem Solver"];
+    const el = document.getElementById('typing');
+    let ri = 0, ci = 0, typing = true;
+    const type = () => {
+      const text = roles[ri];
+      if (typing) {
+        el.textContent = text.slice(0, ++ci);
+        if (ci === text.length) { typing = false; setTimeout(type, 1200); return; }
+      } else {
+        el.textContent = text.slice(0, --ci);
+        if (ci === 0) { typing = true; ri = (ri + 1) % roles.length; }
+      }
+      setTimeout(type, typing ? 90 : 40);
+    };
+    type();
+
+    // Animate linear progress bars on scroll
+    const revealObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          // progress bars inside
+          entry.target.querySelectorAll('.progress > span').forEach(span=>{
+            const pct = span.getAttribute('data-pct');
+            requestAnimationFrame(()=>{ span.style.width = pct + '%'; });
+          });
+          // circles
+          entry.target.querySelectorAll('.circle').forEach(c=>{
+            const pct = Number(c.getAttribute('data-pct')) || 0;
+            const deg = Math.round(3.6 * pct);
+            c.style.background = `conic-gradient(var(--brand) 0deg, var(--brand-2) ${deg}deg, rgba(255,255,255,.08) ${deg}deg)`;
+          });
+          revealObserver.unobserve(entry.target);
+        }
+      })
+    }, { threshold: 0.25 });
+
+    document.querySelectorAll('[data-reveal]').forEach(el=>revealObserver.observe(el));
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Basic JSON-LD for Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Bhagyawanth",
+    "jobTitle": "Data Analyst",
+    "email": "mailto:cse22034@iiitkalyani.ac.in",
+    "telephone": "+917204796690",
+    "url": "https://example.com",
+    "sameAs": [
+      "https://www.linkedin.com/",
+      "https://github.com/",
+      "https://twitter.com/"
+    ]
+  }
+  </script>
+</body>
+</html>
