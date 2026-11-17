@@ -1,4 +1,4 @@
-# Bhagyawanth Ningappa – AI Software Engineer Portfolio
+# Bhagyawanth – AI Software Engineer Portfolio
 
 Personal portfolio showcasing AI software development, LLM API orchestration, agent evaluation pipelines, and containerized backend systems.
 
