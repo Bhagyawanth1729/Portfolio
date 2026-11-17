@@ -160,14 +160,17 @@
     footer{ padding:36px 20px; text-align:center; color:var(--muted); border-top:1px solid rgba(255,255,255,.06); margin-top: 40px; font-size:.92rem; }
 
     /* Responsive */
+    @media (max-width: 1040px){
+      .projects .cards{ grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 960px){
       .intro .grid, .about .grid, .contact .grid{ grid-template-columns: 1fr; }
-      .projects .cards{ grid-template-columns: 1fr; }
       .intro-portrait{ justify-self:start; margin-top: 20px; }
       .achieve-grid{ grid-template-columns: 1fr; }
     }
     @media (max-width: 680px){
       .nav-links{ display:none; }
+      .projects .cards{ grid-template-columns: 1fr; }
       .skills .bars, .circles{ grid-template-columns: 1fr; }
       .circles{ grid-template-columns: repeat(2, 1fr); gap: 32px 18px; margin-bottom: 20px; }
       .intro-portrait img{ width: 100%; max-width: 320px; }
@@ -304,7 +307,7 @@
             <li>Containerized the pipeline with Docker for consistent local-to-deployment behavior.</li>
           </ul>
           <div class="project-footer">
-            <a class="project-link" href="https://github.com/Bhagyawanth1729" target="_blank" rel="noopener"><i class="fab fa-github"></i> View GitHub Repo →</a>
+            <a class="project-link" href="https://github.com/Bhagyawanth1729/Plant-Disease-Detection" target="_blank" rel="noopener"><i class="fab fa-github"></i> View GitHub Repo →</a>
           </div>
         </div>
       </article>
@@ -328,7 +331,7 @@
             <li>Managed full deployment lifecycle from local development to containerized deployment on Render + PostgreSQL.</li>
           </ul>
           <div class="project-footer">
-            <a class="project-link" href="https://github.com/Bhagyawanth1729" target="_blank" rel="noopener"><i class="fab fa-github"></i> View GitHub Repo →</a>
+            <a class="project-link" href="https://github.com/Bhagyawanth1729/Bitespeed_Backend_Task-Identity-Reconciliation" target="_blank" rel="noopener"><i class="fab fa-github"></i> View GitHub Repo →</a>
           </div>
         </div>
       </article>
@@ -352,7 +355,79 @@
             <li>Optimized MySQL schema with indexing strategies, reducing balance-retrieval latency by 30% under concurrent load.</li>
           </ul>
           <div class="project-footer">
-            <a class="project-link" href="https://github.com/Bhagyawanth1729" target="_blank" rel="noopener"><i class="fab fa-github"></i> View GitHub Repo →</a>
+            <a class="project-link" href="https://github.com/Bhagyawanth1729/DBMS-PROJECT" target="_blank" rel="noopener"><i class="fab fa-github"></i> View GitHub Repo →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 4 -->
+      <article class="project-card">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop" alt="Apache Spark Batch Inference Pipeline" loading="lazy" />
+        <div class="project-body">
+          <h3>Spark ML Batch Inference Pipeline</h3>
+          <div class="project-tags">
+            <span class="tag">Apache Spark</span>
+            <span class="tag">Spark MLlib</span>
+            <span class="tag">Python</span>
+            <span class="tag">Parquet</span>
+            <span class="tag">Big Data</span>
+          </div>
+          <p class="project-desc">Distributed end-to-end batch scoring architecture processing high-volume datasets with partitioned Parquet storage.</p>
+          <ul class="project-bullets">
+            <li>Constructed an end-to-end distributed batch inference pipeline utilizing Apache Spark MLlib for high-throughput model scoring.</li>
+            <li>Trained and serialized PipelineModel artifacts for automated inference against large-scale CSV enterprise datasets.</li>
+            <li>Structured output serialization directly to snappy-compressed Parquet files partitioned by timestamp for downstream analytics.</li>
+          </ul>
+          <div class="project-footer">
+            <a class="project-link" href="https://github.com/Bhagyawanth1729/spark-ml-batch-inference-pipeline" target="_blank" rel="noopener"><i class="fab fa-github"></i> View GitHub Repo →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 5 -->
+      <article class="project-card">
+        <img src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=1200&auto=format&fit=crop" alt="Smart Product Pricing Multimodal ML" loading="lazy" />
+        <div class="project-body">
+          <h3>Smart Product Pricing (Multimodal ML)</h3>
+          <div class="project-tags">
+            <span class="tag">Multimodal ML</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">NLP</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Amazon ML 2025</span>
+          </div>
+          <p class="project-desc">Multimodal machine learning architecture fusing textual product metadata and visual embeddings for price prediction.</p>
+          <ul class="project-bullets">
+            <li>Led the engineering team for Amazon ML Challenge 2025 coordinating end-to-end pipelines across text, image, and tabular streams.</li>
+            <li>Combined dense text representations with CNN visual feature maps into unified multi-branch neural regression heads.</li>
+            <li>Implemented custom evaluation metrics and cross-validation regimes to eliminate overfitting and maintain strict latency limits.</li>
+          </ul>
+          <div class="project-footer">
+            <a class="project-link" href="https://github.com/Bhagyawanth1729/Smart_Product_Pricing_Challenge" target="_blank" rel="noopener"><i class="fab fa-github"></i> View GitHub Repo →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 6 -->
+      <article class="project-card">
+        <img src="https://images.unsplash.com/photo-1618401471353-b98aedd04e11?q=80&w=1200&auto=format&fit=crop" alt="AI Agent Benchmarking Harness" loading="lazy" />
+        <div class="project-body">
+          <h3>AI Coding-Agent Benchmarking Suite</h3>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Claude API</span>
+            <span class="tag">Bash</span>
+            <span class="tag">Agent Evaluation</span>
+            <span class="tag">Linux CLI</span>
+          </div>
+          <p class="project-desc">Automated evaluation pipeline and benchmark test runner evaluating agent solvability, test verifiability, and failure modes.</p>
+          <ul class="project-bullets">
+            <li>Built benchmarking scripts and evaluation pipelines for AI coding models (Snorkel Terminus edition) with Anthropic Claude API.</li>
+            <li>Engineered rubric-based verification identifying solution leakage, hackable test suites, and prompt regression failure modes.</li>
+            <li>Reduced benchmarking turnaround time by 40% via automated test execution and structured JSON analytics reporting.</li>
+          </ul>
+          <div class="project-footer">
+            <a class="project-link" href="https://github.com/Bhagyawanth1729/Terminus-benchmark_4" target="_blank" rel="noopener"><i class="fab fa-github"></i> View GitHub Repo →</a>
           </div>
         </div>
       </article>
